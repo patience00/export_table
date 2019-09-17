@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linchtech.export.table.mapper.TableMapper">
+
+    <select id="getFields" resultType="com.linchtech.export.table.entity.Table" parameterType="string">
+        SELECT
+        COLUMN_NAME AS `column`,
+        COLUMN_TYPE as dataType,
+        DATA_TYPE AS fieldType,
+        CHARACTER_MAXIMUM_LENGTH AS length,
+        IS_NULLABLE AS isEmpty,
+
+         COLUMN_DEFAULT AS defaultValue,
+        COLUMN_COMMENT AS note
+        FROM
+        INFORMATION_SCHEMA.COLUMNS
+
+        where table_schema =#{database}
+        AND table_name =#{tableName}
+    </select>
+
+    <select id="getAllTableName" parameterType="string" resultType="com.linchtech.export.table.entity.TableComment">
+        SELECT
+            table_name AS `name`,
+            table_comment AS comment
+        FROM
+            information_schema.TABLES
+        WHERE
+	        table_schema = #{database}
+    </select>
+</mapper>
