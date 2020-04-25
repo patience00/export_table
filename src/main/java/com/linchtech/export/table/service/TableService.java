@@ -31,7 +31,7 @@ public class TableService {
 
     public void getTable(String fileName, String database) throws IOException {
         List<TableComment> adasdb_v4 = tableMapper.getAllTableName(database);
-        File file = new File("C:\\Users\\vcolco\\Desktop\\" + fileName);
+        File file = new File("C:\\Users\\Desktop\\" + fileName);
         @Cleanup FileOutputStream outputStream = new FileOutputStream(file);
         XSSFWorkbook wb = new XSSFWorkbook();
         for (TableComment tableName : adasdb_v4) {

@@ -19,9 +19,9 @@ public class Init implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        tableService.getTable("adas_v4.xlsx","adasdb_v4");
-        tableService.getTable("message_center.xlsx","messagecenter");
-        tableService.getTable("paas_common.xlsx","paas_common_db");
-        tableService.getTable("message_center.xlsx","paas_utils_db");
+        tableService.getTable("***.xlsx","***");
+        tableService.getTable("***.xlsx","***");
+        tableService.getTable("***.xlsx","***");
+        tableService.getTable("***.xlsx","***");
     }
 }
